@@ -91,5 +91,15 @@ powerOfX = [
     [11, 'HALT']
 ]
 
-# x = 3
-CounterMachine(powerOfX, [2, 3])
+# x^y
+# [x, y, counter, output]
+yPowerOfX = [
+    [1, 'COPY', 1, 3],
+    [2, 'DEC', 3],
+    [3, 'INC', 4],
+    [5, 'TEST', 3, 2],
+    [6, 'GOTO', ]
+    [10, 'HALT']
+]
+
+CounterMachine(yPowerOfX, [3, 3])
