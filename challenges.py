@@ -98,8 +98,21 @@ yPowerOfX = [
     [2, 'DEC', 3],
     [3, 'INC', 4],
     [5, 'TEST', 3, 2],
-    [6, 'GOTO', ]
+    [6, 'GOTO', 10],
     [10, 'HALT']
 ]
 
-CounterMachine(yPowerOfX, [3, 3])
+# 6. Sort X, Y Z
+# 4th register is the remainder.
+remainder = [
+    [1, 'COPY', 2, 3],
+    [2, 'COPY', 1, 4],
+    [3, 'DEC', 3],
+    [4, 'DEC', 1],
+    [5, 'TEST', 3, 1],
+    [6, 'TEST', 1, 8],
+    [7, 'GOTO', 3],
+    [8, 'HALT'],
+]
+
+CounterMachine(remainder, [23, 4])

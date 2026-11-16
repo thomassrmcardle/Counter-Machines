@@ -57,15 +57,13 @@ def CounterMachine(Instructions,Registers):
     print (Count, ['HALT'], Registers)
 
 attempt = [
-    [2, 'TEST', 1, 4],
-    [3, 'TEST', 2, 5],
-    
-    [4, 'DEC', 1],
-    [5, 'GOTO', 1],
-
+    [1, 'INC', 1],
+    [2, 'INC', 2],
+    [3, 'DEC', 2],
+    [4, 'TEST', 1, 8],
+    [5, 'DEC', 1],
     [6, 'DEC', 2],
-    [7, 'GOTO', 1],
-    
+    [7, 'TEST', 2, 3],
     [8, 'HALT']
 ]
 
