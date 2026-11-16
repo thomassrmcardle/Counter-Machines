@@ -102,7 +102,7 @@ yPowerOfX = [
     [10, 'HALT']
 ]
 
-# 6. Sort X, Y Z
+# 6. Remainded of x/y
 # 4th register is the remainder.
 remainder = [
     [1, 'COPY', 2, 3],
@@ -115,4 +115,57 @@ remainder = [
     [8, 'HALT'],
 ]
 
-CounterMachine(remainder, [23, 4])
+# 7. Sort X, Y, Z
+# Registers 4, 5 and 6 show the results
+sort = [
+
+    [1, 'GOTO', 20],
+
+    # Compare X and Y
+    [2, 'COPY', 1, 7],
+    [3, 'COPY', 2, 8],
+
+    [4, 'DEC', 7],
+    [5, 'DEC', 8],
+    [6, 'TEST', 7, 10],
+    [7, 'TEST', 8, 10],
+    [8, 'GOTO', 4],
+
+    [10, 'TEST', 8, 11],
+    [11, 'GOTO', 14]
+
+    # Compare the greater number to Z
+    [12, 'COPY', 7, 4],
+    [13, 'COPY', 8, 5],
+    [14, 'GOTO', 18],
+
+    [15, 'COPY', 8, 4],
+    [16, 'COPY', 7, 5],
+    [17, 'GOTO', 18],
+
+    [18, 'COPY', 4, 7],
+    [19, 'COPY', 3, 8],
+
+    [20, 'DEC', 7],
+    [21, 'DEC', 8],
+    [22, 'TEST', 7, 25],
+    [23, 'TEST', 8, 25],
+    [24, 'GOTO', 18],
+
+    [25, 'TEST', 7, 27]
+    [26, 'GOTO', 31]
+
+    # Order if Z is greatest
+    [27, 'COPY', 5, 6],
+    [28, 'COPY', 4, 5],
+    [29, 'COPY', 3, 4],
+    [30, 'GOTO', 60],
+
+    # Else compare against the smaller of X and Y.
+    [31, 'COPY', 5, 7]
+
+    [60, 'HALT']
+
+] 
+
+CounterMachine(sort, [3, 1, 2])
